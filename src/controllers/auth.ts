@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken'
 export const register = async (req, res) => {
     try {
         const {username, password} = req.body
-
         const isUsed = await Teacher.findOne({username})
         if (isUsed) {
             return res.json({
@@ -37,7 +36,7 @@ export const register = async (req, res) => {
         })
     } catch (error) {
         res.json({
-            message: 'Ошибка при создании пользователя'
+            message: 'Ошибка при создании пользователя',
         })
     }
 }
